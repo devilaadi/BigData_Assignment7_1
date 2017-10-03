@@ -1,0 +1,17 @@
+--CREATING EMPLOYEE TABLE ----
+
+CREATE TABLE employee (
+empName string ,
+technology string,
+empNo int,
+state string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+LOAD DATA LOCAL INPATH '/home/cloudera/Desktop/Acadgild/Hive/Assignment_7_1/emp_details.txt' INTO TABLE employee ;
+
+--Calculate the number of employees corresponding to each skill from the table 'employee' which is loaded in the Demo.---
+
+Select technology , COUNT(*) as empSkill from employee GROUP BY (technology) ;
+
+
